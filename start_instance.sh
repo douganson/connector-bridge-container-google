@@ -89,8 +89,13 @@ set_perms() {
   chown -R arm.arm .
 }
 
+dump_args() {
+  echo "$1 $2 $3 $4 $5 $6" > /home/arm/debug-args.log
+}
+
 main() 
 {
+   dump_args $*
    update_hosts
    enable_long_polling $*
    set_mdc_api_token $*
